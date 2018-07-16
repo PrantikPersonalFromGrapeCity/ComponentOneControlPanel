@@ -10,4 +10,9 @@
     <system:String x:Key="Activities">ACTIVITIES</system:String>
     <system:String x:Key="License">LICENSE</system:String>
     <system:String x:Key="Support">SUPPORT</system:String>
+    <system:String x:Key="ProductsJson">http://10.64.1.149/wijmo/c1controlPanel.json</system:String>
+    <system:String x:Key="ErrorHeaderTxt">Error</system:String>
+    <system:String x:Key="ErrorReadingJsonLinkResource">The program encountered an error while reading the json link. Please contact support @ http://supportone.componentone.com/</system:String>
+    <system:String x:Key="ErrorReadingJsonLinkWeb">The program encountered an error while reading the json link from the server. Please contact support @ http://supportone.componentone.com/</system:String>
+    <system:String x:Key="INTERNETSETTINGSREG">SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings</system:String>
 </ResourceDictionary>

@@ -3,12 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:GrapeCity.Tools.ComponentOneControlPanel.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Style="{StaticResource  WindowStyle}" WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown"
         >
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
@@ -21,26 +23,78 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="45"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource gcLogoBtnStyle}" Height="15" Width="90"
+            <Button Style="{StaticResource gcLogoBtnStyle}" Height="15" Width="100"
                     HorizontalAlignment="Left" VerticalAlignment="Center"
                     />
-            <Button Grid.Column="2" Style="{StaticResource closeBtnStyle}" Height="20" Width="20" Click="CloseApp"></Button>
+            <Button x:Name="closeBtn" Grid.Column="2" Style="{StaticResource closeBtnStyle}" Height="20" Width="20" Click="CloseApp"></Button>
         </Grid>
         <StackPanel x:Name="bannerPanel" Background="#9F2132" Grid.Row="1">
-            <Button Style="{StaticResource c1VarBtnStyle}" Height="30" Width="190"
+            <Button Style="{StaticResource c1VarBtnStyle}" Height="30" Width="160"
                     HorizontalAlignment="Left" VerticalAlignment="Center"
                     Margin="10"
                     />
         </StackPanel>
-        <Border Grid.Row="2" BorderBrush="#e4e4e4" BorderThickness="0,0,0,1">
-            <StackPanel Orientation="Horizontal" Margin="25,0,0,2" VerticalAlignment="Bottom">
-                <Button Style="{StaticResource topBtnStyle}" FontSize="25" Content="{StaticResource Products}"></Button>
-                <Button Style="{StaticResource topBtnStyle}" FontSize="25" Content="{StaticResource Activities}" Margin="10,0,0,0"></Button>
-                <Button Style="{StaticResource topBtnStyle}" FontSize="25" Content="{StaticResource License}" Margin="10,0,0,0"></Button>
-                <Button Style="{StaticResource topBtnStyle}" FontSize="25" Content="{StaticResource Support}" Margin="10,0,0,0"></Button>
+        <Border x:Name="nonProgressBrdr" Grid.Row="2" BorderBrush="#e4e4e4" BorderThickness="0,0,0,1">
+            <StackPanel x:Name="level1Panel" Orientation="Horizontal" Margin="25,0,0,2" VerticalAlignment="Bottom">
+                <Button x:Name="productsButtonLevel1" Style="{StaticResource topBtnStyle}" FontSize="18" Content="{StaticResource Products}" Click="Level1_Click"></Button>
+                <Button x:Name="activitiesButtonLevel1" Style="{StaticResource topBtnStyle}" FontSize="18" Content="{StaticResource Activities}" Click="Level1_Click" Margin="10,0,0,0"></Button>
+                <Button x:Name="licenseButtonLevel1" Style="{StaticResource topBtnStyle}" FontSize="18" Content="{StaticResource License}" Click="Level1_Click" Margin="10,0,0,0"></Button>
+                <Button x:Name="supportButtonLevel1" Style="{StaticResource topBtnStyle}" FontSize="18" Content="{StaticResource Support}" Click="Level1_Click" Margin="10,0,0,0"></Button>
             </StackPanel>
         </Border>
-        <Grid Grid.Row="4" Grid.ColumnSpan="4" Margin="25,5,0,0" >
+        <Border Grid.Row="2" Grid.RowSpan="3" x:Name="prgrsBrdr" BorderBrush="#e4e4e4" BorderThickness="0,0,0,1">
+            <controls:AnimatedImage x:Name="progControl" Height="200" Width="200"></controls:AnimatedImage>
+        </Border>
+        <Border x:Name="msgBorderMain" BorderBrush="#cecece"  
+                Grid.Row="2" Grid.RowSpan="3" BorderThickness="1" Background="Black" Opacity="0.5">
+
+        </Border>
+        <Border x:Name="msgBorder" BorderBrush="#cecece" Panel.ZIndex="100" Height="200" Width="400" 
+                Grid.Row="2" Grid.RowSpan="3" Background="White" BorderThickness="1" Opacity="1">
+            <StackPanel Orientation="Vertical" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Style="{StaticResource closeBtnStyle}" Grid.Column="2" Height="20" Width="20" HorizontalAlignment="Right" Margin="10"
+                        Click="CloseMessage"  Opacity="1"
+                        
+                        />
+                    <TextBlock Grid.Column="1" Text="{StaticResource ErrorHeaderTxt}"
+                               Style="{StaticResource AlertTextBlockStyle}"
+                               HorizontalAlignment="Center" FontSize="24" Foreground="Red"
+                               ></TextBlock>
+                </Grid>
+
+
+
+                <Border BorderThickness="0,1,0,1" BorderBrush="#e4e4e4" Opacity="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="137"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <ScrollViewer Height="155" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                            <TextBlock x:Name="messageBlk"  FontFamily="Calibri"
+                                   FontSize="15" Margin="10,35,0,0" TextWrapping="Wrap" TextAlignment="Left"
+                                   ></TextBlock>
+                        </ScrollViewer>
+                        <Button Style="{StaticResource copybtnStyle}" Height="30" Width="70" Content="Copy Text" Grid.Column="1" VerticalAlignment="Top"
+                                Margin="0,5,0,0" Click="CopyMessage"
+                                ></Button>
+                    </Grid>
+
+
+                </Border>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Row="5" Grid.ColumnSpan="4" Margin="25,5,0,0" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="110"/>
                 <ColumnDefinition Width="*"></ColumnDefinition>
