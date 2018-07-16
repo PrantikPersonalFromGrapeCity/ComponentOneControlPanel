@@ -1,0 +1,69 @@
+﻿<Window x:Class="GrapeCity.Tools.ComponentOneControlPanel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Style="{StaticResource  WindowStyle}" WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid x:Name="bannerGrid" Margin="10,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="45"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource gcLogoBtnStyle}" Height="15" Width="90"
+                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                    />
+            <Button Grid.Column="2" Style="{StaticResource closeBtnStyle}" Height="20" Width="20" Click="CloseApp"></Button>
+        </Grid>
+        <StackPanel x:Name="bannerPanel" Background="#9F2132" Grid.Row="1">
+            <Button Style="{StaticResource c1VarBtnStyle}" Height="30" Width="190"
+                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Margin="10"
+                    />
+        </StackPanel>
+        <Border Grid.Row="2" BorderBrush="#e4e4e4" BorderThickness="0,0,0,1">
+            <StackPanel Orientation="Horizontal" Margin="25,0,0,2" VerticalAlignment="Bottom">
+                <Button Style="{StaticResource topBtnStyle}" FontSize="25" Content="{StaticResource Products}"></Button>
+                <Button Style="{StaticResource topBtnStyle}" FontSize="25" Content="{StaticResource Activities}" Margin="10,0,0,0"></Button>
+                <Button Style="{StaticResource topBtnStyle}" FontSize="25" Content="{StaticResource License}" Margin="10,0,0,0"></Button>
+                <Button Style="{StaticResource topBtnStyle}" FontSize="25" Content="{StaticResource Support}" Margin="10,0,0,0"></Button>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Row="4" Grid.ColumnSpan="4" Margin="25,5,0,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0" Margin="0,5,0,0" Grid.RowSpan="2" VerticalAlignment="Top">
+                <Button Style="{StaticResource gcLogoBtnStyle}" Height="15" Width="90"
+                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                    />
+                <TextBlock x:Name="vrsntxtblk" Text="{StaticResource Version}" Style="{StaticResource FooterTxtStyle}" FontSize="9" Margin="30,0,0,0"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="1">
+                <Rectangle   Width="1" Margin="2,5,0,0" Height="25" VerticalAlignment="Top" Stroke="#6f309b" />
+                <StackPanel Orientation="Vertical" Margin="0,5,0,0">
+                    <TextBlock Text="{StaticResource Copyright}" Style="{StaticResource AlertTextBlockStyle}" Foreground="#6f309b" FontSize="11"></TextBlock>
+                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                        <TextBlock Text="{StaticResource CallString1}" Style="{StaticResource AlertTextBlockStyle}" Foreground="#6f309b" FontSize="11"></TextBlock>
+                        <TextBlock Text="*" Style="{StaticResource AlertTextBlockStyle}" Foreground="#6f309b" FontSize="11" VerticalAlignment="Bottom"></TextBlock>
+                        <TextBlock x:Name="contactusblock" MouseLeftButtonDown="contactusblock_MouseLeftButtonDown"
+                                       Text="{StaticResource ContactUs}" Style="{StaticResource AlertTextBlockStyle1}" Foreground="#6f309b" FontSize="11" ></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
