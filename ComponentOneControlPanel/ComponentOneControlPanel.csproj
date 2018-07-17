@@ -57,6 +57,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\EditionControl.xaml.cs">
+      <DependentUpon>EditionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIContainers\AppsContainer.xaml.cs">
+      <DependentUpon>AppsContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIContainers\C1LiveContainer.xaml.cs">
+      <DependentUpon>C1LiveContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIContainers\EditionsContainer.xaml.cs">
+      <DependentUpon>EditionsContainer.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\EditionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,6 +97,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\EN\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIContainers\AppsContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIContainers\C1LiveContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIContainers\EditionsContainer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

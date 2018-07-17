@@ -1,5 +1,7 @@
 ﻿using GrapeCity.Tools.ComponentOneControlPanel.Containers;
 using GrapeCity.Tools.ComponentOneControlPanel.Operations;
+using GrapeCity.Tools.ComponentOneControlPanel.UIContainers;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +45,7 @@ namespace GrapeCity.Tools.ComponentOneControlPanel
 
         private void WebOps_ProgressCompleted(object sender, EventArgs e)
         {
+            
             ShowProgress(true);
             var retArg = (WebJsonArg)e;
             if(retArg.Success==false)
@@ -137,11 +140,68 @@ namespace GrapeCity.Tools.ComponentOneControlPanel
                 level1Button.Style = App.Current.Resources["topBtnStyle"] as Style;
             ((Button)sender).Style= App.Current.Resources["topBtnClickedStyle"] as Style;
             var btnName = ((Button)sender).Name;
-            switch(btnName)
+            level2Panel.Children.Clear();
+            var types = new List<JToken>();
+            switch (btnName)
             {
                 case "productsButtonLevel1":
                     {
-                        var types = GlobalVariables.ProductsJson.SelectToken("Root[*].Products[*]");
+                        types = GlobalVariables.ProductsJson.SelectToken("Root[*].Products[*]")
+                            ?.ToList();
+                        
+                      
+                        break;
+                    }
+            }
+            
+            if(types?.Count()>0)
+            {
+                var cnt = 0;
+                foreach (JProperty tp in types)
+                {
+                    var name = tp.Name;
+                    var lvl2Button = new Button();
+                    lvl2Button.Name = string.Format("{0}ButtonLevel2", name.ToLower());
+                    lvl2Button.Content = name.ToUpper();
+                    lvl2Button.Style = App.Current.Resources["topBtnStyle"] as Style;
+                    lvl2Button.FontSize = 14;
+                    lvl2Button.Margin = new Thickness(cnt==0?0:10, 0, 0, 0);
+                    lvl2Button.Click += Lvl2Button_Click;
+                    level2Panel.Children.Add(lvl2Button);
+                    if (cnt == 0) Lvl2Button_Click(lvl2Button,null);
+                    cnt++;
+                }
+            }
+        }
+
+        private void Lvl2Button_Click(object sender, RoutedEventArgs e)
+        {
+            var level2Buttons = level2Panel.Children.OfType<Button>()?.ToList();
+            if (level2Buttons == null || level2Buttons.Count() == 0) return;
+            foreach (var level2Button in level2Buttons)
+                level2Button.Style = App.Current.Resources["topBtnStyle"] as Style;
+            ((Button)sender).Style = App.Current.Resources["topBtnClickedStyle"] as Style;
+            var nm = ((Button)sender).Name.ToLower();
+            headerTxt.Text = App.Current.Resources[nm+"txt"].ToString();
+            contentGrid.Children.Clear();
+            switch (nm)
+            {
+                case "editionsbuttonlevel2":
+                    {
+                        var edContainer = new EditionsContainer();
+                        contentGrid.Children.Add(edContainer);
+                        break;
+                    }
+                case "c1livebuttonlevel2":
+                    {
+                        var liveContainer = new C1LiveContainer();
+                        contentGrid.Children.Add(liveContainer);
+                        break;
+                    }
+                case "appsbuttonlevel2":
+                    {
+                        var appsContainer = new AppsContainer();
+                        contentGrid.Children.Add(appsContainer);
                         break;
                     }
             }

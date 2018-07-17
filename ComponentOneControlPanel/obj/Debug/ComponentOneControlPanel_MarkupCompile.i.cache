@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\prantik.sarmah\Source\Repos\ComponentOneControlPanel\ComponentOneControlPanel\App.xaml
-32085604653
+7285308701
 
-17904222838
+211362430784
 151002831499
-MainWindow.xaml;Resources\EN\Strings.xaml;Resources\EN\Styles.xaml;
+Controls\EditionControl.xaml;MainWindow.xaml;Resources\EN\Strings.xaml;Resources\EN\Styles.xaml;UIContainers\AppsContainer.xaml;UIContainers\C1LiveContainer.xaml;UIContainers\EditionsContainer.xaml;
 
 False
 

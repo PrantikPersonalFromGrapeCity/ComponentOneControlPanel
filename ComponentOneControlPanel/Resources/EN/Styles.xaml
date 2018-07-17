@@ -346,12 +346,17 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border x:Name="txtBrdr" BorderBrush="Transparent" BorderThickness="0,0,0,2" Height="{TemplateBinding Height}">
-                        <TextBlock x:Name="txtBlk" Height="{TemplateBinding Height}"  Text="{TemplateBinding Property=Content}" FontFamily="Calibri" FontSize="{TemplateBinding FontSize}" TextAlignment="Center" VerticalAlignment="Center"  ></TextBlock>
+                        <TextBlock x:Name="txtBlk" Height="{TemplateBinding Height}"  Text="{TemplateBinding Property=Content}" FontFamily="Calibri" FontSize="{TemplateBinding FontSize}" TextAlignment="Center" VerticalAlignment="Center"  
+                                   Foreground="#999999"
+                                   ></TextBlock>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="BorderBrush" Value="#513b74"
                                     TargetName="txtBrdr"
+                                    ></Setter>
+                            <Setter Property="Foreground" Value="#666666"
+                                    TargetName="txtBlk"
                                     ></Setter>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -400,5 +405,27 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+    <Style x:Key="edBtnBorderStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#d8d8d8"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="#2676c0"
+                                    
+                                    ></Setter>
+                
+            </Trigger>
+        </Style.Triggers>
+        
+
+    </Style>
+    <Style x:Key="EdNameTextBlockStyle" TargetType="TextBlock" >
+        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontSize"  Value="17"></Setter>
+        <Setter Property="Foreground" Value="#666666"></Setter>
+        <Setter Property="FontFamily" Value="Calibri"/>
+        
     </Style>
 </ResourceDictionary>

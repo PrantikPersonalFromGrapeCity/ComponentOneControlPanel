@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="GrapeCity.Tools.ComponentOneControlPanel.Controls.EditionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GrapeCity.Tools.ComponentOneControlPanel.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="260">
+    <Border Style="{StaticResource edBtnBorderStyle}" Padding="10,10,10,0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="nmBlk" Style="{StaticResource EdNameTextBlockStyle}"
+                       
+                       ></TextBlock>
+            <TextBlock x:Name="descText" Style="{StaticResource AlertTextBlockStyle}"
+                       TextWrapping="Wrap" FontSize="12" Grid.Row="1" 
+                       VerticalAlignment="Top" Margin="0,5,0,0"
+                       >
+
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
+                        Grid.Row="2"
+                        >
+                <TextBlock Text="hello"></TextBlock>
+                <TextBlock Style="{StaticResource AlertTextBlockStyle1}" 
+                           Text="{StaticResource viewHelpTxt}" TextDecorations="Underline"
+                           Foreground="#2676c0"
+                           ></TextBlock>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

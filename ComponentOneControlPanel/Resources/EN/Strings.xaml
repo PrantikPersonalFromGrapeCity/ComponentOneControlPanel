@@ -2,6 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
                     >
+    <system:String x:Key="viewHelpTxt">View Help</system:String>
+    <system:String x:Key="editionsbuttonlevel2txt">All Editions</system:String>
+    <system:String x:Key="c1livebuttonlevel2txt">C1Live</system:String>
+    <system:String x:Key="appsbuttonlevel2txt">All Apps</system:String>
     <system:String x:Key="Version">2018.3.1.1</system:String>
     <system:String x:Key="Copyright">© 2018 GrapeCity, Inc. All Rights Reserved</system:String>
     <system:String x:Key="CallString1">1.800.858.2739</system:String>
